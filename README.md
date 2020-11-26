@@ -15,5 +15,5 @@
   <li>ButterKnife</li>
   <p>library yang digunakan untuk mempermudah dalam proses inisialisasi</p>
 </ol>
-<p>Pattern yang biasa diapakai yaitu <b>MVP PATTERN</b></p>
+<p>Pattern yang biasa dipakai yaitu <b>MVP PATTERN</b></p>
 <p><i>Model-View-Presenter</i> atau MVP merupakan sebuah konsep arsitektur pengembangan aplikasi yang memisahkan antara tampilan aplikasi dengan proses bisnis yang bekerja pada aplikasi agar menjadi lebih terstuktur dan juga mudah di-maintain</P>
