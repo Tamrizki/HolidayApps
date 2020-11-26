@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import tam.pa.holiday.R
 import tam.pa.holiday.fragment.list.adapter.SingleListAdapter
 import tam.pa.holiday.model.list.Content
@@ -41,71 +43,68 @@ class ListFragment : Fragment(), IViewList {
             var data: Content = listContent.get(i)
 
             if (data.id == 1){
-                tvTitle1.text = data.title
-                tvContent1.text = data.content
-                rvList1!!.setHasFixedSize(true)
-                rvList1.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
                 if (data.type?.toLowerCase().equals("multiple")){
-                    data.media?.let { listImg.addAll(it) }
-                    rvList1.adapter = getAdapter(listImg, data)
-                    rvList1.animation = AnimationUtils.loadAnimation(activity, R.anim.arrow)
+                    setList(data, tvTitle1, tvContent1, rvList1)
                 }else{
-                    rvList1.adapter = getSingleAdapter(data)
+                    setSingleList(data, tvTitle1, tvContent1, rvList1)
                 }
             }
             else if (data.id == 2){
-                tvTitle2.text = data.title
-                tvContent2.text = data.content
-                rvList2!!.setHasFixedSize(true)
-                rvList2.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
                 if (data.type?.toLowerCase().equals("multiple")){
-                    data.media?.let { listImg.addAll(it) }
-                    rvList2.adapter = getAdapter(listImg, data)
-                    rvList2.animation = AnimationUtils.loadAnimation(activity, R.anim.arrow)
+                    setList(data, tvTitle2, tvContent2, rvList2)
                 }else{
-                    rvList2.adapter = getSingleAdapter(data)
+                    setSingleList(data, tvTitle2, tvContent2, rvList2)
                 }
             }
             else if (data.id == 3){
-                tvTitle3.text = data.title
-                tvContent3.text = data.content
-                rvList3!!.setHasFixedSize(true)
-                rvList3.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
                 if (data.type?.toLowerCase().equals("multiple")){
-                    data.media?.let { listImg.addAll(it) }
-                    rvList3.adapter = getAdapter(listImg, data)
-                    rvList3.animation = AnimationUtils.loadAnimation(activity, R.anim.arrow)
+                    setList(data, tvTitle3, tvContent3, rvList3)
                 }else{
-                    rvList3.adapter = getSingleAdapter(data)
+                    setSingleList(data, tvTitle3, tvContent3, rvList3)
                 }
             }
             else if (data.id == 4){
-                tvTitle4.text = data.title
-                tvContent4.text = data.content
-                rvList4!!.setHasFixedSize(true)
-                rvList4.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
                 if (data.type?.toLowerCase().equals("multiple")){
-                    data.media?.let { listImg.addAll(it) }
-                    rvList4.adapter = getAdapter(listImg, data)
-                    rvList4.animation = AnimationUtils.loadAnimation(activity, R.anim.arrow)
+                    setList(data, tvTitle4, tvContent4, rvList4)
                 }else{
-                    rvList4.adapter = getSingleAdapter(data)
+                    setSingleList(data, tvTitle4, tvContent4, rvList4)
                 }
             }
             else if (data.id == 5){
-                tvTitle5.text = data.title
-                tvContent5.text = data.content
-                rvList5!!.setHasFixedSize(true)
-                rvList5.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
                 if (data.type?.toLowerCase().equals("multiple")){
-                    data.media?.let { listImg.addAll(it) }
-                    rvList5.adapter = getAdapter(listImg, data)
-                    rvList5.animation = AnimationUtils.loadAnimation(activity, R.anim.arrow)
+                    setList(data, tvTitle5, tvContent5, rvList5)
                 }else{
-                    rvList5.adapter = getSingleAdapter(data)
+                    setSingleList(data, tvTitle5, tvContent5, rvList5)
                 }
             }
         }
+    }
+
+    private fun setSingleList(
+        data_: Content,
+        tvTitle_: TextView?,
+        tvContent_: TextView?,
+        rvList_: RecyclerView?
+    ) {
+        tvTitle_!!.text = data_.title
+        tvContent_!!.text = data_.content
+        rvList_!!.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        rvList_!!.adapter = getSingleAdapter(data_)
+    }
+
+    private fun setList(
+        data_: Content,
+        tvTitle_: TextView?,
+        tvContent_: TextView?,
+        rvList_: RecyclerView?
+    ) {
+        var listImg_cp: MutableList<String> = ArrayList<String>()
+        data_!!.media?.let { listImg_cp.addAll(it) }
+        tvTitle_!!.text = data_.title
+        tvContent_!!.text = data_.content
+        rvList_?.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        rvList_!!.adapter = getAdapter(listImg_cp, data_)
+        rvList_!!.animation = AnimationUtils.loadAnimation(activity, R.anim.arrow)
     }
 
     private fun getSingleAdapter(data: Content): SingleListAdapter {
@@ -121,6 +120,6 @@ class ListFragment : Fragment(), IViewList {
     }
 
     override fun onFail(msg: String) {
-        Log.d("ERORRPRESENTER", msg)
+        Log.d("errorPresenter", msg)
     }
 }
