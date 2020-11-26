@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bott_nav"
+    app:startDestination="@id/list_fragment">
+    <fragment
+        android:id="@+id/list_fragment"
+        android:name="tam.pa.holiday.fragment.list.ListFragment"
+        tools:layout="@layout/fragment_list"
+        android:label="@string/tx_list"
+        >
+        <action android:id="@+id/action1_2"
+            app:destination="@+id/gallery_fragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/gallery_fragment"
+        android:name="tam.pa.holiday.fragment.gallery.GalleryFragment"
+        tools:layout="@layout/fragment_list"
+        android:label="@string/tx_gallery"
+        >
+        <action android:id="@+id/action2_3"
+            app:destination="@id/profile_fragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/profile_fragment"
+        android:name="tam.pa.holiday.fragment.profile.ProfileFragment"
+        tools:layout="@layout/fragment_list"
+        android:label="@string/tx_profile"/>
+</navigation>
