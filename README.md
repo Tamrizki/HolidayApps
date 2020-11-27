@@ -1,5 +1,5 @@
 # HolidayApps
-<p> <a href="https://drive.google.com/drive/folders/1SyrrdHP7VB3c3iotXdVEz-TCdIilvKUJ?usp=sharing">Link Apk disini.</a></p>
+<p> <a href="https://drive.google.com/drive/folders/1SyrrdHP7VB3c3iotXdVEz-TCdIilvKUJ?usp=sharing">Link Apk dan Sertif disini.</a></p>
 <h3>Knowledge & Experience Questions</h3>
 <hr style="height:2px;border-width:0;color:'#333333';background-color:'#333333'">
 <p><b>Library yang sering digunakan</b></p>
